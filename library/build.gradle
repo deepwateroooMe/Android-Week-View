@@ -5,17 +5,71 @@ repositories {
 }
 
 android {
-    compileSdkVersion 23
-    buildToolsVersion "23.0.1"
+    compileSdkVersion 34
+    buildToolsVersion "34.0.0"
 
     defaultConfig {
-        minSdkVersion 9
-        targetSdkVersion 23
+        minSdkVersion 27
+        targetSdkVersion 34
     }
-}
+    compileOptions {
+        sourceCompatibility = JavaVersion.VERSION_11
+        targetCompatibility = JavaVersion.VERSION_11
+    }
 
+    // sourceSets {
+    //     main {
+    //         java {
+    //             srcDir 'src/main'
+    //         }
+    //         resources {
+    //             srcDir 'res/' 
+    //         }
+    //     }
+    //     // test {
+    //     //     java {
+    //     //         srcDir 'tests/model'
+    //     //     }
+    //     //     resources {
+    //     //         srcDir 'images/model' // <=== NOT WORKING
+    //     //     }
+    //     // }
+    // }
+
+    // java {
+    //     withJavadocJar()
+    //     withSourcesJar()
+    // }
+}
+// // val sourcesJar by tasks.registering(Jar::class) {
+// def sourcesJar = tasks.register(Jar::class) {
+//     archiveClassifier.set("sources")
+//     // from(project.the<SourceSetContainer>()["main"].allSource)
+// }
+// publishing.publications {
+//     mavenJava(MavenPublication) {
+//         from components.java
+//     }
+// }
+
+// task sourcesJar(type: Jar) {
+//     from sourceSets.main.allJava
+//     // classifier "sources"
+//     archiveClassifier.set("sources")
+// }
+
+// task javadocJar(type: Jar) {
+//     //javadoc
+//     from javadoc.destinationDir
+//     archiveClassifier.set("javadoc")
+// }
 dependencies {
-    compile 'com.android.support:appcompat-v7:23.1.1'
-}
+    def appcompat_version = "1.7.0"
 
-apply from: 'https://raw.github.com/chrisbanes/gradle-mvn-push/master/gradle-mvn-push.gradle'
+    implementation "androidx.appcompat:appcompat:$appcompat_version"
+    // For loading and tinting drawables on older versions of the platform
+    implementation "androidx.appcompat:appcompat-resources:$appcompat_version"
+    
+    // compile 'com.android.support:appcompat-v7:34.0.0'
+}
+// apply from: 'https://raw.github.com/chrisbanes/gradle-mvn-push/master/gradle-mvn-push.gradle'
