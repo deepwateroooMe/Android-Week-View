@@ -1,13 +1,14 @@
 apply plugin: 'com.android.application'
 
 android {
-    compileSdkVersion 32
-    buildToolsVersion "23.0.1"
+    namespace "com.alamkanak.weekview.sample"
+    compileSdkVersion 34
+    buildToolsVersion "34.0.0" // 检查这个版本有吗
 
     defaultConfig {
         applicationId "com.alamkanak.weekview"
         minSdkVersion 27
-        targetSdkVersion 32
+        targetSdkVersion 34
         versionCode 1
         versionName "1.0"
     }
@@ -22,6 +23,12 @@ android {
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
     implementation project(':library')
+
+//androidx version of annotation    
+    implementation "androidx.annotation:annotation:1.8.0"
+    // To use the Java-compatible @androidx.annotation.OptIn API annotation
+    implementation "androidx.annotation:annotation-experimental:1.4.1"
+    implementation "androidx.interpolator:interpolator:1.0.0"
 
     def appcompat_version = "1.7.0"
     implementation "androidx.appcompat:appcompat:$appcompat_version"

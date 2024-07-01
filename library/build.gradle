@@ -5,6 +5,7 @@ repositories {
 }
 
 android {
+    namespace "com.alamkanak.weekview"
     compileSdkVersion 34
     buildToolsVersion "34.0.0"
 
@@ -13,8 +14,8 @@ android {
         targetSdkVersion 34
     }
     compileOptions {
-        sourceCompatibility = JavaVersion.VERSION_11
-        targetCompatibility = JavaVersion.VERSION_11
+        sourceCompatibility = JavaVersion.VERSION_17
+        targetCompatibility = JavaVersion.VERSION_17
     }
 
     // sourceSets {
